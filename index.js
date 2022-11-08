@@ -1,7 +1,7 @@
 const canvas = document.getElementById('canvas');
 $(canvas).attr('width',screen.availWidth*0.8)
 $(canvas).attr('height',screen.availWidth*0.4)
-let vw = parseInt($('#canvas').css('width'))/100;
+var vw = parseInt($('#canvas').css('width'))/100;
 var ctx = canvas.getContext('2d');
 var width = parseInt($('#canvas').css('width'));
 var height = parseInt($('#canvas').css('height'));
