@@ -1,6 +1,6 @@
 const canvas2 = document.getElementById('canvas2');
-$(canvas2).attr('width',window.innerWidth*0.8)
-$(canvas2).attr('height',window.innerHeight*0.4)
+$(canvas2).attr('width',window.innerWidth)
+$(canvas2).attr('height',window.innerHeight)
 var ctx2 = canvas2.getContext('2d');
 var width = parseInt($('#canvas2').css('width'));
 var height = parseInt($('#canvas2').css('height'));
@@ -226,7 +226,7 @@ class downbricks2{
       var img = new Image();
       img.src = './img/bricksWallnight.png'
       this.image = img
-      this.height=50;
+      this.height=(vw*5);
       this.width = parseInt($('#canvas2').css('width'))
       this.y=height-this.height;
       this.x=0;
