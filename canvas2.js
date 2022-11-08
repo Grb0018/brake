@@ -1,6 +1,6 @@
 const canvas2 = document.getElementById('canvas2');
-$(canvas2).attr('width',screen.availWidth*0.8)
-$(canvas2).attr('height',screen.availWidth*0.4)
+$(canvas2).attr('width',window.innerWidth*0.8)
+$(canvas2).attr('height',window.innerHeight*0.4)
 var ctx2 = canvas2.getContext('2d');
 var width = parseInt($('#canvas2').css('width'));
 var height = parseInt($('#canvas2').css('height'));
