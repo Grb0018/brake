@@ -2,8 +2,10 @@ const canvas2 = document.getElementById('canvas2');
 $(canvas2).attr('width',window.innerWidth)
 $(canvas2).attr('height',window.innerHeight)
 var ctx2 = canvas2.getContext('2d');
+
 var width = parseInt($('#canvas2').css('width'));
 var height = parseInt($('#canvas2').css('height'));
+let vw = parseInt($('#canvas').css('width'))/100;
 const downBrickImgs2  = document.getElementById('downBrick')
 var gem1falls2 = false;
 var gem1falles2 = true;
