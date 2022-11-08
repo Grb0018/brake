@@ -1,0 +1,15 @@
+#canvas{
+  display: none;
+}
+#canvas1{
+  display: none;
+}
+body{display:flex;align-content: center;align-items: center;justify-content: center;background: #2d4334; background: #d4efff;background:#3e3652}
+#left{    position: absolute;
+    width: 7vw;
+    left: 1vw;
+    filter: drop-shadow(2px 4px 6px black);}
+#right{position: absolute;
+    width: 7vw;
+    right: 1vw;
+    filter: drop-shadow(2px 4px 6px black);}
