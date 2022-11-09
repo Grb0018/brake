@@ -4,12 +4,12 @@
 #canvas1{
   display: none;
 }
-body{display:flex;align-content: center;align-items: center;justify-content: center;background: #2d4334; background: #d4efff;background:#3e3652;-webkit-touch-callout: none;}
+body{display:flex;align-content: center;align-items: center;justify-content: center;background: #2d4334; background: #d4efff;background:#180f2a;-webkit-touch-callout: none;}
 #left{    position: absolute;
-    width: 7vw;
+    width: 7vw;    background-size: cover;height:7.2vw;
     left: 1vw;
     filter: drop-shadow(2px 4px 6px black);}
 #right{position: absolute;
-    width: 7vw;
+    width: 7vw;    background-size: cover;height:7.2vw;
     right: 1vw;
     filter: drop-shadow(2px 4px 6px black);}
