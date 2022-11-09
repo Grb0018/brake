@@ -42,7 +42,41 @@ class Paddles2 {
        paddles2.draw(ctx2) 
  }   
  }
-
+var allparticles=[] 
+ class particle{
+  constructor(x,y){
+      this.velocity ={x:0 , y:(vw*0.1)}
+      this.x=x
+      this.y=y
+      this.radius = (vw*0.09)
+      
+  }
+  update(ctx2,i){
+    if(i=='p'){
+      this.velocity.x +=(vw*0.1)
+      this.velocity.y +=(vw*0.1)
+    }
+    if(i=='m'){
+      this.velocity.x -=(vw*0.1)
+      this.velocity.y +=(vw*0.1)
+    }
+    if(i=='p1'){
+      this.velocity.x +=(vw*0.1)
+      this.velocity.y -=(vw*0.1)
+    }
+    if(i=='m1'){
+      this.velocity.x -=(vw*0.1)
+      this.velocity.y -=(vw*0.1)
+    }
+    this.y += this.velocity.y
+    this.x += this.velocity.x
+    ctx2.beginPath();
+    ctx2.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+    ctx2.fillStyle = "white"
+    ctx2.fill()
+  }
+ }
+  
  ///////// ball ///////
  class Balls2 {
     constructor(w,h){
@@ -106,6 +140,10 @@ class Paddles2 {
               if(allbrickss2[i]['name']==8 && gem2falles2==true){gem2falls2=true;gem2falles2=false}
               if(allbrickss2[i]['name']==31 && gem3falles2==true){gem3falls2=true;gem3falles2=false}
               allbrickss2.splice(allbrickss2.indexOf(allbrickss2[i]),1)
+              allparticles.push( new particle(balls2.x,balls2.y))
+              for (let index = 0; index < 7; index++) {
+                setTimeout(()=>{allparticles.push( new particle(balls2.x+index*2,balls2.y))},0*index)
+              }
             }
            }
            else{
@@ -115,6 +153,10 @@ class Paddles2 {
               if(allbrickss2[i]['name']==8 && gem2falles2==true){gem2falls2=true;gem2falles2=false}
               if(allbrickss2[i]['name']==31 && gem3falles2==true){gem3falls2=true;gem3falles2=false}
               allbrickss2.splice(allbrickss2.indexOf(allbrickss2[i]),1)
+              for (let index = 0; index < 7; index++) {
+                setTimeout(()=>{allparticles.push( new particle(balls2.x+index*2,balls2.y))},0*index)
+              }
+              
             }}
           }
       }
@@ -130,7 +172,7 @@ var rightgos2;
   document.getElementById('left').onmousedown=(e)=>{
     clearInterval(rightgos2)
    leftgos2= setInterval(()=>{
-      if(paddles2.x> 0){
+      if(paddles2.x> 10){
         paddles2.updatel(ctx2)}
         else{paddles2.velocity=0}
     },50)
@@ -146,7 +188,7 @@ var rightgos2;
   document.getElementById('right').onmousedown=()=>{
     clearInterval(leftgos2)
     rightgos2 = setInterval(()=>{
-      if(paddles2.x+paddles2.width<width){
+      if(paddles2.x+paddles2.width<width-10){
         paddles2.updater(ctx2) }
         else{paddles2.velocity=0}
        },50)
@@ -166,7 +208,7 @@ var rightgos2;
   
   document.getElementById('left').ontouchstart=(e)=>{
     leftgos2= setInterval(()=>{
-       if(paddles2.x> 0){
+       if(paddles2.x> 10){
          paddles2.updatel(ctx2)}
          else{paddles2.velocity=0}
      },30)
@@ -176,7 +218,7 @@ var rightgos2;
   }
    document.getElementById('right').ontouchstart=()=>{
     rightgos2 = setInterval(()=>{
-      if(paddles2.x+paddles2.width<width){
+      if(paddles2.x+paddles2.width<width-10){
         paddles2.updater(ctx2) }
         else{paddles2.velocity=0}
        },30)
@@ -191,7 +233,7 @@ var rightgos2;
       clearInterval(rightgos2)
       keypress=1
       leftgos2= setInterval(()=>{
-        if(paddles2.x> 0){
+        if(paddles2.x> 10){
           paddles2.updatel(ctx2)}
           else{paddles2.velocity=0}
       },35)
@@ -200,7 +242,7 @@ var rightgos2;
       clearInterval(leftgos2)
       keypress=1
       rightgos2 = setInterval(()=>{
-        if(paddles2.x+paddles2.width<width){
+        if(paddles2.x+paddles2.width<width-10){
           paddles2.updater(ctx2) }
           else{paddles2.velocity=0}
          },35)
@@ -495,6 +537,12 @@ var snowfall2 = true;
     });
     downBricks2.draw(ctx2)
     balls2.update(ctx2)
+  
+    allparticles.forEach(element => {
+      var item = ['p','m','p1','m1']
+      var x = item[Math.floor(Math.random()*4)]
+      element.update(ctx2,x)
+    });
     requestAnimationFrame(gameloops2)
   }
   gameloops2()
