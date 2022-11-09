@@ -1,8 +1,7 @@
 const canvas2 = document.getElementById('canvas2');
-$(canvas2).attr('width',window.innerWidth)
-$(canvas2).attr('height',window.innerHeight)
+$(canvas2).attr('width',window.innerWidth*0.8)
+$(canvas2).attr('height',window.innerWidth*0.45)
 var ctx2 = canvas2.getContext('2d');
-
 var width = parseInt($('#canvas2').css('width'));
 var height = parseInt($('#canvas2').css('height'));
 var vw = parseInt($('#canvas').css('width'))/100;
@@ -20,8 +19,8 @@ class Paddles2 {
      var img= new Image()
      img.src = "./img/brickPlate.png"
      this.image = img
-     this.width = vw*6;
-     this.height = vw*1.8;
+     this.width = vw*7;
+     this.height = vw*2.2;
      this.x = w/2 - this.width/2;
      this.y= h-this.height-vw*5;
      this.velocity = 1
@@ -251,7 +250,7 @@ class downbricks2{
       this.height=vw*1
       this.y=(2*vw)+this.height+t
       this.x=vw*2;
-      this.bwidth = vw*4.5
+      this.bwidth = vw*5.5
       this.bheight = vw*3
     }
     draw(ctx2){
