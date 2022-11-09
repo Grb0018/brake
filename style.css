@@ -4,7 +4,7 @@
 #canvas1{
   display: none;
 }
-body{display:flex;align-content: center;align-items: center;justify-content: center;background: #2d4334; background: #d4efff;background:#3e3652}
+body{display:flex;align-content: center;align-items: center;justify-content: center;background: #2d4334; background: #d4efff;background:#3e3652;-webkit-touch-callout: none;}
 #left{    position: absolute;
     width: 7vw;
     left: 1vw;
